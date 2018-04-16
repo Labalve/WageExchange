@@ -1,4 +1,4 @@
-package domain;
+package com.kkulak.WageExchange.domain;
 
 import java.math.BigDecimal;
 

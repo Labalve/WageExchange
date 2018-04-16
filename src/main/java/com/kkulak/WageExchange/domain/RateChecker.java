@@ -1,4 +1,4 @@
-package domain;
+package com.kkulak.WageExchange.domain;
 
 public interface RateChecker {
 
