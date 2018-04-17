@@ -10,10 +10,10 @@ public class Wage {
     private final Currency currency;
     private final BigDecimal value;
 
-    public static Wage Of(String currency, BigDecimal value) {
-        Preconditions.checkArgument(currency != null, "currency can't be null");
-        Preconditions.checkArgument(value != null, "value can't be null");
-        return new Wage(Currency.valueOf(currency), value);
+    public static Wage of(BigDecimal value, Currency currency) {
+        Preconditions.checkArgument(currency != null, "currency cannot be null");
+        Preconditions.checkArgument(value != null, "value cannot be null");
+        return new Wage(currency, value);
     }
 
     public Currency getCurrency() {

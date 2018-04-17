@@ -9,25 +9,25 @@ public class WageTest {
 
     @Test
     public void create() {
-        String currency = "EUR";
+        Currency currency = Currency.EUR;
         BigDecimal value = new BigDecimal(100);
-        Wage result = Wage.Of(currency, value);
+        Wage result = Wage.of(value, currency);
         assertThat(result.getValue()).isEqualTo(new BigDecimal(100).setScale(2));
         assertThat(result.getCurrency()).isEqualTo(Currency.EUR);
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void createWithNullCurrency() {
-        String currency = null;
+        Currency currency = null;
         BigDecimal value = new BigDecimal(100);
-        Wage.Of(currency, value);
+        Wage.of(value, currency);
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void createWithNullValue() {
-        String currency = "EUR";
+        Currency currency = Currency.EUR;
         BigDecimal value = null;
-        Wage.Of(currency, value);
+        Wage.of(value, currency);
     }
 
     @Test

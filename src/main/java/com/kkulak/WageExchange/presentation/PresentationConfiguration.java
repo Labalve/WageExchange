@@ -1,14 +1,12 @@
-package com.kkulak.WageExchange;
+package com.kkulak.WageExchange.presentation;
 
 import com.kkulak.WageExchange.domain.MonthlyNetService;
 import com.kkulak.WageExchange.domain.MonthlyNetServiceImpl;
-import com.kkulak.WageExchange.presentation.WagePrinter;
-import com.kkulak.WageExchange.presentation.WagePrinterImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class WageExchangeConfiguration {
+public class PresentationConfiguration {
 
     @Bean
     public MonthlyNetService MonthlyNetServiceImpl() {
