@@ -8,10 +8,13 @@ The application is a salary calculator with REST api:
 
 Since it's only an excercise, calculations shouldn't be taken as a real predictions in real life situations.
 The monthly net salary in PLN is being calculated with formula:
+
 *gross_daily x exchange_rate x 22 - (gross_daily x exchange_rate x 22 - cost_of_income) * taxation_rate*
+
 with fixed number for the countries:
+
 | Code | Country | Currency | Cost of Income | Taxation Rate |
-| --- | --- | --- | ---:| ---:|
+| --- | --- | --- | --- | --- |
 | PL | Poland | PLN | 1200 | 19 |
 | UK | United Kingdom | GBP | 600 | 25 |
 | DE | Germany | EUR | 800 | 20 |
