@@ -12,6 +12,7 @@ public class RateCheckerImpl implements RateChecker {
 
     @Override
     public BigDecimal getRate(Currency from, Currency to) throws ApiNotRespondingException {
+        if (from == to) return new BigDecimal(1);
         return rateApiCaller.getRate(String.valueOf(from), String.valueOf(to));
     }
 
