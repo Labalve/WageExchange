@@ -1,10 +1,10 @@
 # WageExchange
 
-Excercise I've done before, but since the result was not satsifying I decided to redo whole project.
+Excercise I've done before, but since the result was not satsifying I decided to redo the whole project.
 
 The application is a salary calculator with REST api:
 1. Provide code of the country and daily gross wage in local currency
-2. Get monthly net salary in PLN (exchange rates are being taken from the [Narodowy Bank Polski api](http://api.nbp.pl/en.html))
+2. Get monthly net salary in PLN (exchange rates are being taken from the [api of the Narodowy Bank Polski](http://api.nbp.pl/en.html))
 
 Since it's only an excercise, calculations shouldn't be taken as a real predictions in real life situations.
 The monthly net salary in PLN is being calculated with formula:
@@ -23,7 +23,7 @@ with fixed number for the countries:
 
 ### Prerequisites
 
-To run server side of this project you will need Tomcat (the easiest way of running it for development purposes will be opening whole catalog as a project in [NetBeans IDE](https://netbeans.org/) with [NB Spring Boot](http://plugins.netbeans.org/plugin/67888/nb-springboot) plugin installed.
+To run server side of this project you will need Tomcat (the easiest way of running it for development purposes will be opening whole catalog as a project in [NetBeans IDE](https://netbeans.org/) with [NB Spring Boot](http://plugins.netbeans.org/plugin/67888/nb-springboot) plugin installed).
 
 ### Installing and running
 
