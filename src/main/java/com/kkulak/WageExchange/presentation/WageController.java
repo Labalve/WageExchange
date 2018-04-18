@@ -29,7 +29,7 @@ public class WageController {
             return new ResponseEntity(response, HttpStatus.OK);
         }
         catch(Exception e){
-            return new ResponseEntity(HttpStatus.FORBIDDEN);
+            return new ResponseEntity(e.getMessage(), HttpStatus.FORBIDDEN);
         }
     }
     
