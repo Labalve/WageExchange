@@ -1,7 +1,7 @@
 package com.kkulak.WageExchange.domain;
 
-import com.kkulak.WageExchange.infrastructure.CountryProvider;
 import com.google.common.base.Preconditions;
+import com.kkulak.WageExchange.infrastructure.ApiNotRespondingException;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,7 +23,7 @@ public class MonthlyNetServiceImpl implements MonthlyNetService {
     }
 
     @Override
-    public Wage getMonthlyNet(BigDecimal value, String countryCode) throws WrongCountryCodeException {
+    public Wage getMonthlyNet(BigDecimal value, String countryCode) throws WrongCountryCodeException, ApiNotRespondingException  {
         Preconditions.checkArgument(value != null, "value cannot be null");
         Preconditions.checkArgument(countryCode != null, "countryCode cannot be null");
         Country country = countryProvider.getCountry(countryCode);

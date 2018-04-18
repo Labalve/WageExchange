@@ -1,5 +1,6 @@
 package com.kkulak.WageExchange.infrastructure;
 
+import com.kkulak.WageExchange.domain.CountryProviderImpl;
 import com.kkulak.WageExchange.domain.Country;
 import com.kkulak.WageExchange.domain.Currency;
 import com.kkulak.WageExchange.domain.WrongCountryCodeException;
@@ -32,6 +33,16 @@ public class CountryProviderImplTest {
     @Test
     public void getCountry() throws WrongCountryCodeException {
         assertThat(countryProvider.getCountry("PL")).isEqualTo(poland);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void getCountryWithNullCode() throws WrongCountryCodeException {
+        countryProvider.getCountry(null);
+    }
+    
+    @Test(expected=WrongCountryCodeException.class)
+    public void getCountryWithWrongCode() throws WrongCountryCodeException {
+        countryProvider.getCountry("XYZ");
     }
     
 

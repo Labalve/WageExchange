@@ -1,4 +1,4 @@
-package com.kkulak.WageExchange.infrastructure;
+package com.kkulak.WageExchange.domain;
 
 import com.kkulak.WageExchange.domain.Country;
 import com.kkulak.WageExchange.domain.WrongCountryCodeException;

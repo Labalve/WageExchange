@@ -1,6 +1,5 @@
 package com.kkulak.WageExchange.domain;
 
-import com.kkulak.WageExchange.infrastructure.CountryProvider;
 import java.math.BigDecimal;
 import org.junit.Test;
 import static org.mockito.Mockito.mock;

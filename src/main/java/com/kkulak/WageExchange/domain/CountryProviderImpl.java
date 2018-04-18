@@ -1,4 +1,4 @@
-package com.kkulak.WageExchange.infrastructure;
+package com.kkulak.WageExchange.domain;
 
 import com.google.common.base.Preconditions;
 import com.kkulak.WageExchange.domain.Country;

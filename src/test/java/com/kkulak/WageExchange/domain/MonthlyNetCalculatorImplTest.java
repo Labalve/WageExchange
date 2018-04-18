@@ -7,24 +7,37 @@ import static org.mockito.Mockito.mock;
 
 public class MonthlyNetCalculatorImplTest {
 
-    int plnDaily = 200;
+    int daily = 200;
     int daysInMonth = 22;
-    int costOfIncomePL = 1200;
-    double taxPercentage = 0.19;
+    int costOfIncomePl = 1200;
+    int costOfIncomeDe = 800;
+    double taxPercentagePl = 0.19;
+    double taxPercentageDe = 0.20;
 
     @Test
-    public void calculate() {
-        BigDecimal value = new BigDecimal(plnDaily);
+    public void calculateForPL() {
+        BigDecimal value = new BigDecimal(daily);
         Country country = Country.of("Poland", Currency.PLN, 19, new BigDecimal(1200));
         MonthlyNetCalculatorImpl instance = new MonthlyNetCalculatorImpl();
-        BigDecimal expResult = new BigDecimal(plnDaily * daysInMonth - (plnDaily * daysInMonth - costOfIncomePL) * taxPercentage).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal expResult = monthlyNet(taxPercentagePl, costOfIncomePl, 1);
         BigDecimal result = instance.calculate(value, country);
+        assertThat(result).isEqualTo(expResult);
+    }
+    
+    @Test
+    public void calculateForDe() {
+        double eurRate = 4;
+        BigDecimal value = new BigDecimal(daily);
+        Country country = Country.of("Germany", Currency.EUR, 20, new BigDecimal(800));
+        MonthlyNetCalculatorImpl instance = new MonthlyNetCalculatorImpl();
+        BigDecimal expResult = monthlyNet(taxPercentageDe, costOfIncomeDe, eurRate);
+        BigDecimal result = instance.calculate(value.multiply(new BigDecimal(eurRate)), country);
         assertThat(result).isEqualTo(expResult);
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void calculateWithNullCountry() {
-        BigDecimal value = new BigDecimal(plnDaily);
+        BigDecimal value = new BigDecimal(daily);
         Country country = null;
         MonthlyNetCalculatorImpl instance = new MonthlyNetCalculatorImpl();
         BigDecimal result = instance.calculate(value, country);
@@ -46,4 +59,8 @@ public class MonthlyNetCalculatorImplTest {
         BigDecimal result = instance.calculate(value, country);
     }
 
+    private BigDecimal monthlyNet(double taxPercentage, int costOfIncome, double rate){
+        return new BigDecimal(daily * rate * daysInMonth - (daily * rate * daysInMonth - costOfIncome) * taxPercentage).setScale(2, BigDecimal.ROUND_HALF_UP);
+    }
+    
 }

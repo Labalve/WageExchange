@@ -1,6 +1,8 @@
 package com.kkulak.WageExchange.presentation;
 import com.kkulak.WageExchange.domain.MonthlyNetService;
 import com.kkulak.WageExchange.domain.Wage;
+import com.kkulak.WageExchange.domain.WrongCountryCodeException;
+import com.kkulak.WageExchange.infrastructure.ApiNotRespondingException;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +30,7 @@ public class WageController {
             String response = wagePrinter.print(wage);
             return new ResponseEntity(response, HttpStatus.OK);
         }
-        catch(Exception e){
+        catch(WrongCountryCodeException | ApiNotRespondingException e){
             return new ResponseEntity(e.getMessage(), HttpStatus.FORBIDDEN);
         }
     }
